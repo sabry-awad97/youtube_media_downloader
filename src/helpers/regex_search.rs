@@ -1,7 +1,7 @@
-use crate::YoutubeError;
+use crate::{AppResult, YoutubeError};
 use regex::Regex;
 
-pub fn regex_search(pattern: &str, string: &str, group: usize) -> Result<String, YoutubeError> {
+pub fn regex_search(pattern: &str, string: &str, group: usize) -> AppResult<String> {
     let regex = Regex::new(pattern).map_err(|_| YoutubeError::RegexMatchError {
         caller: "regex_search".to_string(),
         pattern: pattern.to_string(),

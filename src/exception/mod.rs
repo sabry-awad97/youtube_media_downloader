@@ -109,3 +109,5 @@ impl fmt::Display for YoutubeError {
         }
     }
 }
+
+impl std::error::Error for YoutubeError {}
