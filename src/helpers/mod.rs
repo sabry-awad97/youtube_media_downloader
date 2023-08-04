@@ -15,3 +15,6 @@ pub use is_age_restricted::is_age_restricted;
 
 mod safe_filename;
 pub use safe_filename::safe_filename;
+
+mod setup_logger;
+pub use setup_logger::setup_logger;
