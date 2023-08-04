@@ -23,7 +23,7 @@ pub fn find_object_from_startpoint(html: &str, start_point: usize) -> AppResult<
     .cloned()
     .collect();
 
-    while i < html.len() {
+    while i < html.chars().count() {
         if stack.is_empty() {
             break;
         }
@@ -48,17 +48,11 @@ pub fn find_object_from_startpoint(html: &str, start_point: usize) -> AppResult<
                 i += 2;
                 continue;
             }
-        } else {
-            // Non-string contexts are when we need to look for context openers.
-            if context_closers.contains_key(&curr_char) {
-                // Slash starts a regular expression depending on context
-                if !(curr_char == '/'
-                    || ['(', ',', '=', ':', '[', '!', '&', '|', '?', '{', '}', ';']
-                        .contains(&last_char))
-                {
-                    stack.push(curr_char);
-                }
-            }
+        } else if !(!context_closers.contains_key(&curr_char)
+            || curr_char == '/'
+                && !matches!(last_char, last if !matches!(last, '(' | ',' | '=' | ':' | '[' | '!' | '&' | '|' | '?' | '{' | '}' | ';')))
+        {
+            stack.push(curr_char);
         }
 
         i += 1;
