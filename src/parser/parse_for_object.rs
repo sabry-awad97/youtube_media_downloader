@@ -30,4 +30,15 @@ mod tests {
         let result = parse_for_object(html, preceding_regex);
         assert_eq!(result, Ok(json!({"name": "John", "age": 30})));
     }
+
+    #[test]
+    fn test_parse_for_object_nested_object() {
+        let html = r#"<script>{"name": "John", "address": {"city": "New York", "country": "USA"}}</script>"#;
+        let preceding_regex = r#"<script>\s*"#;
+        let result = parse_for_object(html, preceding_regex);
+        assert_eq!(
+            result,
+            Ok(json!({"name": "John", "address": {"city": "New York", "country": "USA"}}))
+        );
+    }
 }
