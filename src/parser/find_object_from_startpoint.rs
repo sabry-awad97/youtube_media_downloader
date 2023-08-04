@@ -50,7 +50,8 @@ pub fn find_object_from_startpoint(html: &str, start_point: usize) -> AppResult<
             }
         } else if !(!context_closers.contains_key(&curr_char)
             || curr_char == '/'
-                && !matches!(last_char, last if !matches!(last, '(' | ',' | '=' | ':' | '[' | '!' | '&' | '|' | '?' | '{' | '}' | ';')))
+                && !['(', ',', '=', ':', '[', '!', '&', '|', '?', '{', '}', ';']
+                    .contains(&last_char))
         {
             stack.push(curr_char);
         }
