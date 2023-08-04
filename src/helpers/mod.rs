@@ -1,10 +1,6 @@
 mod regex_search;
 pub use regex_search::regex_search;
 
-
-mod recording_available;
-pub use recording_available::recording_available;
-
 mod is_private;
 pub use is_private::is_private;
 
