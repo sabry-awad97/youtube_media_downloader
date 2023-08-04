@@ -8,8 +8,11 @@ pub fn parse_for_object_from_startpoint(
     let full_obj = find_object_from_startpoint(html, start_point)?;
     match serde_json::from_str(&full_obj) {
         Ok(parsed) => Ok(parsed),
-        Err(_) => Err(YoutubeError::HTMLParseError {
-            error_string: format!("Could not parse object. {}", full_obj),
+        Err(error) => Err(YoutubeError::HTMLParseError {
+            error_string: format!(
+                "Could not parse object: {}\nSerde Error: {}",
+                full_obj, error
+            ),
         }),
     }
 }
