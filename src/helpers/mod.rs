@@ -1,9 +1,6 @@
 mod regex_search;
 pub use regex_search::regex_search;
 
-mod is_private;
-pub use is_private::is_private;
-
 mod is_age_restricted;
 pub use is_age_restricted::is_age_restricted;
 
