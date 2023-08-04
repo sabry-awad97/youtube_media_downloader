@@ -1,6 +1,13 @@
 use crate::{AppResult, YoutubeError};
 
 pub fn find_object_from_startpoint(html: &str, start_point: usize) -> AppResult<String> {
+    // Ensure the start_point is within the bounds of the HTML string
+    if start_point >= html.len() {
+        return Err(YoutubeError::HTMLParseError {
+            error_string: "Start point is beyond the length of the HTML".into(),
+        });
+    }
+
     let html = &html[start_point..];
     if !html.starts_with('{') && !html.starts_with('[') {
         return Err(YoutubeError::HTMLParseError {
