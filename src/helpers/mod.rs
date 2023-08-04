@@ -12,3 +12,6 @@ pub use is_private::is_private;
 
 mod is_age_restricted;
 pub use is_age_restricted::is_age_restricted;
+
+mod safe_filename;
+pub use safe_filename::safe_filename;
