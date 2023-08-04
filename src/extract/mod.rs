@@ -6,3 +6,6 @@ pub use recording_available::recording_available;
 
 mod is_private;
 pub use is_private::is_private;
+
+mod is_age_restricted;
+pub use is_age_restricted::is_age_restricted;

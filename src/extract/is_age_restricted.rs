@@ -1,4 +1,4 @@
-use super::regex_search;
+use crate::regex_search;
 
 pub fn is_age_restricted(watch_html: &str) -> bool {
     regex_search(r"og:restrictions:age", watch_html, 0).is_ok()
