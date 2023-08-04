@@ -18,3 +18,6 @@ pub use safe_filename::safe_filename;
 
 mod setup_logger;
 pub use setup_logger::setup_logger;
+
+mod uniqueify;
+pub use uniqueify::uniqueify;
