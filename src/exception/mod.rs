@@ -1,9 +1,11 @@
 use std::fmt;
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 pub enum YoutubeError {
     MaxRetriesExceeded,
-    HTMLParseError,
+    HTMLParseError {
+        error_string: String,
+    },
     ExtractError,
     RegexMatchError {
         caller: String,
@@ -43,7 +45,9 @@ impl fmt::Display for YoutubeError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
             YoutubeError::MaxRetriesExceeded => write!(f, "Maximum number of retries exceeded."),
-            YoutubeError::HTMLParseError => write!(f, "HTML could not be parsed."),
+            YoutubeError::HTMLParseError { error_string } => {
+                write!(f, "HTML could not be parsed. {}", error_string)
+            }
             YoutubeError::ExtractError => write!(f, "Data extraction based exception."),
             YoutubeError::RegexMatchError { caller, pattern } => {
                 write!(f, "{}: could not find match for {}", caller, pattern)
