@@ -12,3 +12,6 @@ pub use is_age_restricted::is_age_restricted;
 
 mod initial_player_response;
 pub use initial_player_response::initial_player_response;
+
+mod video_id;
+pub use video_id::video_id;
