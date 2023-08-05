@@ -15,3 +15,6 @@ pub use initial_player_response::initial_player_response;
 
 mod video_id;
 pub use video_id::video_id;
+
+mod playlist_id;
+pub use playlist_id::playlist_id;
