@@ -9,5 +9,7 @@ pub mod helpers;
 
 pub mod parser;
 
+pub mod cipher;
+
 #[allow(unused)]
 mod test_utils;
