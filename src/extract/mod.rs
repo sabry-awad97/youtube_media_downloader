@@ -24,3 +24,6 @@ pub use channel_name::channel_name;
 
 mod video_info_url;
 pub use video_info_url::video_info_url;
+
+mod video_info_url_age_restricted;
+pub use video_info_url_age_restricted::video_info_url_age_restricted;
