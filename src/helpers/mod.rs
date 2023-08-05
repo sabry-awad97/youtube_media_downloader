@@ -9,3 +9,6 @@ pub use setup_logger::setup_logger;
 
 mod uniqueify;
 pub use uniqueify::uniqueify;
+
+mod cache;
+pub use cache::cache;
