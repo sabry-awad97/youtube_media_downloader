@@ -1,4 +1,4 @@
-use regex::Regex;
+use fancy_regex::Regex;
 
 pub fn safe_filename(s: &str, max_length: usize) -> String {
     // Characters in range 0-31 (0x00-0x1F) are not allowed in ntfs filenames.
@@ -12,7 +12,7 @@ pub fn safe_filename(s: &str, max_length: usize) -> String {
         ntfs_characters
             .iter()
             .chain(invalid_chars.iter())
-            .map(|&c| regex::escape(&c.to_string()))
+            .map(|&c| fancy_regex::escape(&c.to_string()).to_string())
             .collect::<Vec<String>>()
             .join("")
     );

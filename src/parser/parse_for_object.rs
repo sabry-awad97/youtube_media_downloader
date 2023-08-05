@@ -1,4 +1,4 @@
-use regex::Regex;
+use fancy_regex::Regex;
 
 use super::parse_for_object_from_startpoint;
 use crate::{AppResult, YoutubeError};
@@ -9,9 +9,14 @@ pub fn parse_for_object(html: &str, preceding_regex: &str) -> AppResult<serde_js
         pattern: preceding_regex.to_owned(),
     })?;
 
-    let result = regex.find(html).ok_or(YoutubeError::HTMLParseError {
-        error_string: format!("No matches for regex {}", preceding_regex),
-    })?;
+    let result = regex
+        .find(html)
+        .map_err(|_| YoutubeError::HTMLParseError {
+            error_string: format!("No matches for regex {}", preceding_regex),
+        })?
+        .ok_or(YoutubeError::HTMLParseError {
+            error_string: format!("No matches for regex {}", preceding_regex),
+        })?;
 
     let start_index = result.end();
     parse_for_object_from_startpoint(html, start_index)

@@ -1,6 +1,6 @@
 use super::parse_for_object_from_startpoint;
 use crate::{AppResult, YoutubeError};
-use regex::Regex;
+use fancy_regex::Regex;
 
 pub fn parse_for_all_objects(
     html: &str,
@@ -12,7 +12,7 @@ pub fn parse_for_all_objects(
         pattern: preceding_regex.to_owned(),
     })?;
 
-    for match_iter in regex.find_iter(html) {
+    for match_iter in regex.find_iter(html).flatten() {
         let start_index = match_iter.end();
         match parse_for_object_from_startpoint(html, start_index) {
             Ok(value) => result.push(value),

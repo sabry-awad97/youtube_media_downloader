@@ -1,4 +1,4 @@
-use regex::Regex;
+use fancy_regex::Regex;
 
 use crate::{AppResult, YoutubeError};
 
@@ -16,7 +16,7 @@ pub fn channel_name(url: &str) -> AppResult<String> {
             pattern: pattern.to_string(),
         })?;
 
-        if let Some(captures) = regex.captures(url) {
+        if let Ok(Some(captures)) = regex.captures(url) {
             let uri_style = captures.get(1).unwrap().as_str();
             let uri_identifier = captures.get(2).unwrap().as_str();
             return Ok(format!("/{}/{}", uri_style, uri_identifier));

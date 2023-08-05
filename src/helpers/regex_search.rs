@@ -1,5 +1,5 @@
 use crate::{AppResult, YoutubeError};
-use regex::Regex;
+use fancy_regex::Regex;
 
 pub fn regex_search(pattern: &str, string: &str, group: usize) -> AppResult<String> {
     let regex = Regex::new(pattern).map_err(|_| YoutubeError::RegexMatchError {
@@ -7,7 +7,7 @@ pub fn regex_search(pattern: &str, string: &str, group: usize) -> AppResult<Stri
         pattern: pattern.to_string(),
     })?;
 
-    if let Some(captures) = regex.captures(string) {
+    if let Ok(Some(captures)) = regex.captures(string) {
         if let Some(matched_group) = captures.get(group) {
             return Ok(matched_group.as_str().to_string());
         }

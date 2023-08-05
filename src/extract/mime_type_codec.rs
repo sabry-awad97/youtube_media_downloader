@@ -1,4 +1,4 @@
-use regex::Regex;
+use fancy_regex::Regex;
 
 use crate::{AppResult, YoutubeError};
 
@@ -9,7 +9,7 @@ pub fn mime_type_codec(mime_type_codec: &str) -> AppResult<(&str, Vec<&str>)> {
         pattern: pattern.to_string(),
     })?;
 
-    if let Some(captures) = regex.captures(mime_type_codec) {
+    if let Ok(Some(captures)) = regex.captures(mime_type_codec) {
         let mime_type = captures.get(1).unwrap().as_str();
         let codecs = captures
             .get(2)
