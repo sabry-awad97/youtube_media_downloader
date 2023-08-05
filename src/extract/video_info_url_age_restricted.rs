@@ -1,4 +1,4 @@
-use crate::regex_search;
+use crate::helpers::regex_search;
 use std::collections::HashMap;
 use url::form_urlencoded;
 

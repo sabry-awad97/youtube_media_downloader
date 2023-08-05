@@ -1,4 +1,4 @@
-use crate::{parse_for_all_objects, AppResult, YoutubeError};
+use crate::{parser::parse_for_all_objects, AppResult, YoutubeError};
 use serde_json::Value;
 
 pub fn get_ytcfg(html: &str) -> AppResult<Value> {

@@ -1,4 +1,4 @@
-use crate::{parse_for_object, AppResult, YoutubeError};
+use crate::{parser::parse_for_object, AppResult, YoutubeError};
 
 pub fn initial_data(watch_html: &str) -> AppResult<serde_json::Value> {
     // List of patterns to search for the ytInitialData JSON

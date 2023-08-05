@@ -1,17 +1,13 @@
 mod exception;
 pub use exception::YoutubeError;
 
-pub type AppResult<T> = Result<T, YoutubeError>;
+pub type AppResult<T> = Result<T, exception::YoutubeError>;
 
-mod extract;
-pub use extract::*;
+pub mod extract;
 
-mod helpers;
-pub use helpers::*;
+pub mod helpers;
 
-mod parser;
-pub use parser::*;
+pub mod parser;
 
 #[allow(unused)]
 mod test_utils;
-pub use test_utils::*;

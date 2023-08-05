@@ -1,5 +1,5 @@
-use crate::regex_search;
 use chrono::NaiveDate;
+use crate::helpers::regex_search;
 
 pub fn publish_date(watch_html: &str) -> Option<NaiveDate> {
     let pattern = r#"itemprop="datePublished" content="(\d{4}-\d{2}-\d{2})""#;

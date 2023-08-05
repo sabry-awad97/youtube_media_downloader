@@ -1,4 +1,4 @@
-use crate::{regex_search, AppResult, YoutubeError};
+use crate::{helpers::regex_search, AppResult, YoutubeError};
 
 pub fn get_ytplayer_js(html: &str) -> AppResult<String> {
     let js_url_patterns = vec![r"(/s/player/[\w\d]+/[\w\d_/.]+/base\.js)"];

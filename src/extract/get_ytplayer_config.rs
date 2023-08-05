@@ -1,4 +1,4 @@
-use crate::{parse_for_object, AppResult, YoutubeError};
+use crate::{parser::parse_for_object, AppResult, YoutubeError};
 
 pub fn get_ytplayer_config(html: &str) -> AppResult<serde_json::Value> {
     // Define the config_patterns
