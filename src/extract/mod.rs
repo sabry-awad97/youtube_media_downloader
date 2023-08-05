@@ -21,3 +21,6 @@ pub use playlist_id::playlist_id;
 
 mod channel_name;
 pub use channel_name::channel_name;
+
+mod video_info_url;
+pub use video_info_url::video_info_url;
