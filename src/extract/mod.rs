@@ -9,3 +9,6 @@ pub use is_private::is_private;
 
 mod is_age_restricted;
 pub use is_age_restricted::is_age_restricted;
+
+mod initial_player_response;
+pub use initial_player_response::initial_player_response;
