@@ -18,3 +18,6 @@ pub use video_id::video_id;
 
 mod playlist_id;
 pub use playlist_id::playlist_id;
+
+mod channel_name;
+pub use channel_name::channel_name;
