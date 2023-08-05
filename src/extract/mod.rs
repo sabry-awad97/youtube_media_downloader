@@ -33,3 +33,6 @@ pub use mime_type_codec::mime_type_codec;
 
 mod get_ytplayer_js;
 pub use get_ytplayer_js::get_ytplayer_js;
+
+mod get_ytplayer_config;
+pub use get_ytplayer_config::get_ytplayer_config;
