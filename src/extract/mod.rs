@@ -30,3 +30,6 @@ pub use video_info_url_age_restricted::video_info_url_age_restricted;
 
 mod mime_type_codec;
 pub use mime_type_codec::mime_type_codec;
+
+mod get_ytplayer_js;
+pub use get_ytplayer_js::get_ytplayer_js;
