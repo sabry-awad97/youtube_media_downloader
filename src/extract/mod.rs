@@ -36,3 +36,6 @@ pub use get_ytplayer_js::get_ytplayer_js;
 
 mod get_ytplayer_config;
 pub use get_ytplayer_config::get_ytplayer_config;
+
+mod get_ytcfg;
+pub use get_ytcfg::get_ytcfg;
