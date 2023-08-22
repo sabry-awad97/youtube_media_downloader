@@ -11,5 +11,7 @@ pub mod parser;
 
 pub mod cipher;
 
+pub mod request;
+
 #[allow(unused)]
 mod test_utils;
